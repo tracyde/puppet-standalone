@@ -29,4 +29,5 @@ node default {
   include scheduledTasks
   include packages
   include lockDown
+  include golang
 }
