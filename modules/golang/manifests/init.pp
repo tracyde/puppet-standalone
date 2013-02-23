@@ -22,7 +22,7 @@ class golang($version = '1.0.3') {
 
   file { '/etc/profile.d/gopath.sh':
     ensure  => present,
-    content => 'export GOPATH=$HOME/mygo; export PATH=$GOPATH/bin',
+    content => 'export GOPATH=$HOME/mygo; export PATH=$PATH:$GOPATH/bin',
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
