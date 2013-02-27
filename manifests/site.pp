@@ -3,7 +3,7 @@ class scheduledTasks {
   cron {
     "puppet-apply":
       ensure => present,
-      command => '/usr/bin/puppet apply ${puppet config print manifest)',
+      command => '/usr/bin/puppet apply $(puppet config print manifest)',
       user    => 'root',
       minute  => 30;
   }
