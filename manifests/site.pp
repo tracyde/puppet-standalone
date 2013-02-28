@@ -16,6 +16,17 @@ class packages {
   }
 }
 
+class files {
+  file {
+    "/etc/puppet/hiera.yaml":
+      ensure  => present,
+      owner   => 'root',
+      group   => 'root',
+      mode    => 644,
+      content => '';
+  }
+}
+
 class lockDown {
   augeas { 'sshd_config':
     context => '/files/etc/ssh/sshd_config',
@@ -28,6 +39,7 @@ class lockDown {
 node default {
   include scheduledTasks
   include packages
+  include files
   include lockDown
   include golang
 }
