@@ -1,4 +1,3 @@
-
 class scheduledTasks {
   cron {
     "puppet-apply":
@@ -25,6 +24,11 @@ class files {
       group   => 'root',
       mode    => 644,
       content => '';
+  }
+  file {
+    "/etc/localtime":
+      ensure => 'link',
+      target => '/usr/share/zoneinfo/US/Eastern',
   }
 }
 
