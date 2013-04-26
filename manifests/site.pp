@@ -13,6 +13,7 @@ class packages {
   package {
     'augeas': ensure => installed;
     'git':    ensure => installed;
+    'tmux':    ensure => installed;
   }
 }
 
@@ -38,8 +39,10 @@ class lockDown {
 
 node default {
   include scheduledTasks
-  include packages
   include files
   include lockDown
+  include epel
+  include rkhunter
+  include packages
   include golang
 }
