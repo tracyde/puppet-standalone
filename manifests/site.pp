@@ -30,6 +30,14 @@ class files {
       ensure => 'link',
       target => '/usr/share/zoneinfo/US/Eastern',
   }
+  file {
+    "/root/.forward":
+      ensure => present,
+      owner  => 'root',
+      group  => 'root',
+      mode   => 0640,
+      content => 'tracyde@gmail.com';
+  }
 }
 
 class lockDown {
